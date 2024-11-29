@@ -1,12 +1,39 @@
 {
-  "name": "followme",
+  "name": "datasyncer",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon",
+    "start": "tsc && NODE_ENV=production node dist/server.js",
+    "build": "tsc",
+    "prod": "NODE_ENV=production node dist/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "Data Syncer is a powerful and scalable backend for connecting people, built with modern web technologies including Node.js, Express, MongoDB, and TypeScript. With a focus on performance and ease of use, Data Syncer provides a robust API to manage users, posts, post interactions, and other related resources efficiently. The API is designed for flexibility, making it easy to integrate with various front-end frameworks and applications.",
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/mongoose": "^5.11.96",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.9.1",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.8.2",
+    "morgan": "^1.10.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
 }
