@@ -1,6 +1,9 @@
-import express, { Request, Response } from "express";
+import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
 import morgan from "morgan";
+import { ErrorHandler } from "./utils";
+import { globalErrorHandler } from "./controllers";
+import { authRouter } from "./routes";
 
 const app = express();
 
@@ -14,5 +17,15 @@ app.get("/", (req: Request, res: Response) => {
     message: "Base route for data syncer backend application.",
   });
 });
+
+app.use("/api/auth", authRouter);
+
+app.all("*", (req: Request, res: Response, next: NextFunction) => {
+  return next(
+    new ErrorHandler(`Can't find ${req.originalUrl} on this server.`, 404)
+  );
+});
+
+app.use(globalErrorHandler);
 
 export default app;
