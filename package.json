@@ -4,7 +4,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon",
-    "start": "tsc && NODE_ENV=production node dist/server.js",
+    "start": "node dist/server.js",
     "build": "tsc",
     "prod": "NODE_ENV=production node dist/server.js"
   },
