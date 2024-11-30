@@ -3,7 +3,7 @@ import cors from "cors";
 import morgan from "morgan";
 import { ErrorHandler } from "./utils";
 import { globalErrorHandler } from "./controllers";
-import { authRouter, userRouter } from "./routes";
+import { authRouter, postRouter, userRouter } from "./routes";
 
 const app = express();
 
@@ -20,6 +20,7 @@ app.get("/", (req: Request, res: Response) => {
 
 app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
+app.use("/api/posts", postRouter);
 
 app.all("*", (req: Request, res: Response, next: NextFunction) => {
   return next(
